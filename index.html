@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tia 自定义播放器</title>
+  <link rel="stylesheet" href="font/iconfont.css">
+  <script src="font/iconfont.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    /*@font-face {*/
+      /*font-family: 'iconfont';  !* project id 597136 *!*/
+      /*src: url('//at.alicdn.com/t/font_597136_ru37iw1oxzhestt9.eot');*/
+      /*src: url('//at.alicdn.com/t/font_597136_ru37iw1oxzhestt9.eot?#iefix') format('embedded-opentype'),*/
+      /*url('//at.alicdn.com/t/font_597136_ru37iw1oxzhestt9.woff') format('woff'),*/
+      /*url('//at.alicdn.com/t/font_597136_ru37iw1oxzhestt9.ttf') format('truetype'),*/
+      /*url('//at.alicdn.com/t/font_597136_ru37iw1oxzhestt9.svg#iconfont') format('svg');*/
+    /*}*/
+    .icon {
+      font-size: 32px;
+      color: #aaa;
+    }
+    section {
+      position: relative;
+      width: 980px;
+      height: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .video-player {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #000;
+      padding: 70px 0 80px 0;
+    }
+    .video-controls {
+      width: 100%;
+      height: 41px;
+      background: #5c5c5c;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+    }
+    #video1 {
+      display: block;
+      margin: 0 auto;
+    }
+    .play-logo {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      z-index: 6;
+    }
+    .play-logo>img {
+      width: 152px;
+      height: 50px;
+      vertical-align: middle;
+    }
+    /**  进度条 **/
+    .video-player .video-controls .video-seek {
+      width: 100%;
+      height: 4px;
+      position: absolute;
+      top: -2px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      cursor: pointer;
+      /*border-radius: 2px;*/
+      background-color: #414141;
+    }
+    .seek-con {
+      width: 8px;
+      height: 8px;
+      position: absolute;
+      top: 0;
+      left: 200px;
+      margin-top: -2px;
+      pointer-events: none;
+      border-radius: 50%;
+      background: #fff;
+      z-index: 6;
+    }
+    .seek-buffer {
+      width: 8px;
+      height: 8px;
+      position: absolute;
+      top: 0;
+      left: 200px;
+      margin-top: -2px;
+      border-radius: 50%;
+      background-color: #eee;
+      opacity: .5;
+      z-index: 6;
+    }
+    .seek-slider {
+      width: 202px;
+      height: 4px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+      background: #f11c2a;
+      z-index: 5;
+    }
+    .viewBox {
+      display: block;
+      min-width: 200px;
+      line-height: 20px;
+      text-align: left;
+      padding: 5px 0  0 10px;
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+    }
+    .viewBox > span {
+      color: #aaa;
+      font-size: 14px;
+    }
+    .viewBox > b {
+      display: inline-block;
+      width: 1px;
+      height: 10px;
+      background: #666;
+      margin: 0 5px;
+      vertical-align: middle;
+    }
+    .video-play {
+      float: left;
+    }
+    .video-play>a, .video-volume>a, .video-screen>a {
+      cursor: pointer;
+      display: none;
+      width: 32px;
+      height: 32px;
+      padding: 5px;
+    }
+    .video-play a.active, .video-volume a.active, .video-screen a.active {
+      display: block; /** 通过添加class 切换显示状态 **/
+    }
+    .video-replay {
+      cursor: pointer;
+      float: left;
+      width: 32px;
+      height: 32px;
+      padding-top: 10px;
+      margin-left: 10px;
+    }
+    .icon-replay, .icon-feedback {
+      font-size: 22px;
+    }
+    .icon-volume0 , .icon-volume1 , .icon-full-screen , .icon-quit-full-screen {
+      font-size: 21px;
+    }
+    ul,li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .rt-controls {
+      text-align: right;
+      line-height: 26px;
+    }
+    .rt-controls>li {
+      display: inline-block;
+      text-align: right;
+      margin-right: 10px;
+    }
+    .rt-controls>li>a {
+      vertical-align: top;
+    }
+    .video-feedback {
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      padding-top: 10px;
+    }
+    .video-solution>a {
+      vertical-align: middle;
+      position: relative;
+      top: 3px;
+    }
+    /*** 弹幕开关 ***/
+    .switch {
+      position: relative;
+      float: left;
+      width: 68px;
+      margin: 0;
+      top: 1px;
+      -webkit-user-select:none;
+      -moz-user-select:none;
+      -ms-user-select: none;
+    }
+    .switch-checkbox {
+      display: none;
+    }
+    .switch-label {
+      display: block;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid #333;
+      border-radius: 20px;
+      background-color: #333;
+    }
+    .switch-inner {
+      display: block;
+      width: 200%;
+      margin-left: -100%;
+      transition: margin 0.3s ease-in 0s;
+    }
+    .switch-inner::before, .switch-inner::after {
+      display: block;
+      float: right;
+      width: 50%;
+      height: 20px;
+      padding: 0;
+      line-height: 20px;
+      font-size: 12px;
+      color: #fff;
+      font-family: Trebuchet, Arial, sans-serif;
+      font-weight: normal;
+      box-sizing: border-box;
+    }
+    .switch-inner::after {
+      content: attr(data-on);
+      padding-left: 7px;
+      color: #aaa;
+      text-align: left;
+    }
+    .switch-inner::before {
+      content: attr(data-off);
+      padding-right: 7px;
+      color: #aaa;
+      text-align: right;
+    }
+    .switch-switch {
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin: 1px;
+      background: #FFFFFF;
+      top: 0;
+      bottom: 0;
+      right: 46px;
+      border: 1px solid #333;
+      border-radius: 20px;
+      transition: all 0.3s ease-in 0s;
+    }
+    .switch-checkbox:checked + .switch-label .switch-inner {
+      margin-left: 0;
+    }
+    .switch-checkbox:checked + .switch-label .switch-switch {
+      right: 0;
+      background: #f11c2a;
+    }
+    .video-solution>a {
+      cursor: pointer;
+      padding: 2px 10px 3px 10px;
+      text-align: center;
+      font-size: 12px;
+      line-height: 12px;
+      color: #aaa;
+      background: #333;
+      border-radius: 12px;
+    }
+    /***  载入中 ***/
+    .video-prompt {
+      display: none;
+      position: absolute;
+      top: 40%;
+      left: 40%;
+      z-index: 7;
+      color: #fff;
+    }
+    /** 暂停/播放 mask **/
+    .mask {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,.5);
+    }
+    .mask>.layout {
+
+    }
+    .mask .layout>a {
+      display: none;
+      text-align: center;
+      vertical-align: middle;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -20px;
+      margin-left: -20px;
+      z-index: 10;
+      cursor: pointer;
+    }
+    .mask .layout>a .icon {
+      font-size: 40px;
+      color: #fff;
+    }
+    .mask .layout>a.active {
+      display: block;
+    }
+
+  </style>
+</head>
+<body>
+
+<section>
+
+  <div class="video-player">
+    <video width="100%" height="100%" src="blob:https://www.bilibili.com/75940797-029a-49a2-b861-39813d0aa773" id="video1"></video>
+    <!-- 展示logo  -->
+    <a class="play-logo"><img src="logo-grey.png" alt="888live"></a>
+    <!--  载入中 -->
+    <div class="video-prompt"><img src="logo-grey.png"><br>载入中。。。</div>
+    <div class="video-controls">
+      <!--  进度条  -->
+      <div class="video-seek">
+        <div class="seek-buffer"></div>
+        <div class="seek-con"></div>
+        <div class="seek-slider"></div>
+        <div class="viewBox">
+          <span>房间号：1234567890</span> <b>|</b> <span>2018-03-28</span>
+        </div>
+      </div>
+      <!-- 播放/暂停 -->
+      <div class="video-play">
+        <a class="active" title="播放"><i class="icon icon-play">&#xe6aa;</i></a>
+        <a title="暂停"><i class="icon icon-pause">&#xe6ab;</i></a>
+      </div>
+      <!-- 重播 -->
+      <a class="video-replay" title="重播"><i class="icon icon-replay">&#xe67c;</i></a>
+      <!-- 反馈 音量+/静音 弹幕开关 画质 全屏/退出全屏 -->
+      <ul class="rt-controls">
+        <li class="video-feedback">
+          <a title="反馈"><i class="icon icon-feedback">&#xe63f;</i></a>
+        </li>
+        <li class="video-volume">
+          <a class="active" title="音量+">
+            <i class="icon icon-volume1">&#xe758;</i>
+          </a>
+          <a title="静音">
+            <i class="icon icon-volume0">&#xe6f5;</i>
+          </a>
+        </li>
+        <li class="danmu">
+          <div class="switch">
+            <input class="switch-checkbox" id="onoffswitch" type="checkbox">
+            <label class="switch-label" for="onoffswitch">
+              <span class="switch-inner" data-on="弹幕开" data-off="弹幕关"></span>
+              <span class="switch-switch"></span>
+            </label>
+          </div>
+        </li>
+        <li class="video-solution">
+          <a title="画质">高清</a>
+        </li>
+        <li class="video-screen">
+          <a class="active" title="全屏"><i class="icon icon-full-screen">&#xe754;</i></a>
+          <a title="退出全屏"><i class="icon icon-quit-full-screen">&#xe755;</i></a>
+        </li>
+      </ul>
+    </div>
+    <div class="mask">
+      <div class="layout">
+        <a class="active" title="播放"><i class="icon icon-play">&#xe667;</i></a>
+        <a title="暂停"><i class="icon icon-pause">&#xe668;</i></a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>
