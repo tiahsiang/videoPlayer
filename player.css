@@ -730,7 +730,7 @@ ul,li {
   margin: 0 auto;
 }
 .fix-top>a.addTop-btn {
-  display: block;
+  display: block;inline-
   width: 150px;
   height: 40px;
   font-size: 14px;
