@@ -15,18 +15,12 @@
     * {
       box-sizing: border-box;
     }
-    /*@font-face {*/
-      /*font-family: 'iconfont';  !* project id 597136 *!*/
-      /*src: url('//at.alicdn.com/t/font_597136_ru37iw1oxzhestt9.eot');*/
-      /*src: url('//at.alicdn.com/t/font_597136_ru37iw1oxzhestt9.eot?#iefix') format('embedded-opentype'),*/
-      /*url('//at.alicdn.com/t/font_597136_ru37iw1oxzhestt9.woff') format('woff'),*/
-      /*url('//at.alicdn.com/t/font_597136_ru37iw1oxzhestt9.ttf') format('truetype'),*/
-      /*url('//at.alicdn.com/t/font_597136_ru37iw1oxzhestt9.svg#iconfont') format('svg');*/
-    /*}*/
+    /* 字体图标 */
     .icon {
       font-size: 32px;
       color: #aaa;
     }
+    /* 最外层 用于控制整体展示的宽高 */
     section {
       position: relative;
       width: 980px;
@@ -34,6 +28,7 @@
       margin: 0 auto;
       text-align: center;
     }
+    /* video宽高为100% */
     .video-player {
       width: 100%;
       height: 100%;
@@ -45,20 +40,18 @@
       background: #000;
       padding: 70px 0 80px 0;
     }
+    /* video底部操作栏 */
     .video-controls {
       width: 100%;
       height: 41px;
-      background: #5c5c5c;
+      background: #333;
       position: absolute;
       left: 0;
       right: 0;
       bottom: 0;
       z-index: 2;
     }
-    #video1 {
-      display: block;
-      margin: 0 auto;
-    }
+    /* 视频右侧Logo */
     .play-logo {
       display: block;
       text-align: center;
@@ -73,7 +66,7 @@
       height: 50px;
       vertical-align: middle;
     }
-    /**  进度条 **/
+    /**  播放进度条 **/
     .video-player .video-controls .video-seek {
       width: 100%;
       height: 4px;
@@ -131,17 +124,18 @@
       left: 0;
     }
     .viewBox > span {
-      color: #aaa;
+      color: #ddd;
       font-size: 14px;
     }
     .viewBox > b {
       display: inline-block;
       width: 1px;
       height: 10px;
-      background: #666;
+      background: #aaa;
       margin: 0 5px;
       vertical-align: middle;
     }
+    /* 播放/暂停 .active切换display */
     .video-play {
       float: left;
     }
@@ -153,8 +147,9 @@
       padding: 5px;
     }
     .video-play a.active, .video-volume a.active, .video-screen a.active {
-      display: block; /** 通过添加class 切换显示状态 **/
+      display: block; /** 通过添加.active 切换display显示状态 **/
     }
+    /* 重播 */
     .video-replay {
       cursor: pointer;
       float: left;
@@ -174,6 +169,7 @@
       padding: 0;
       list-style: none;
     }
+    /* 右侧控制项 */
     .rt-controls {
       text-align: right;
       line-height: 26px;
@@ -215,9 +211,9 @@
       display: block;
       overflow: hidden;
       cursor: pointer;
-      border: 1px solid #333;
+      border: 1px solid #232323;
       border-radius: 20px;
-      background-color: #333;
+      background-color: #232323;
     }
     .switch-inner {
       display: block;
@@ -260,7 +256,7 @@
       top: 0;
       bottom: 0;
       right: 46px;
-      border: 1px solid #333;
+      border: 1px solid #232323;
       border-radius: 20px;
       transition: all 0.3s ease-in 0s;
     }
@@ -271,6 +267,10 @@
       right: 0;
       background: #f11c2a;
     }
+    .video-solution {
+      padding-top: 10px;
+      position: relative;
+    }
     .video-solution>a {
       cursor: pointer;
       padding: 2px 10px 3px 10px;
@@ -278,18 +278,38 @@
       font-size: 12px;
       line-height: 12px;
       color: #aaa;
-      background: #333;
+      background: #232323;
       border-radius: 12px;
     }
-    /***  载入中 ***/
-    .video-prompt {
+    .video-solution .droplist {
       display: none;
+      width: 50px;
+      height: 86px;
+      background: rgba(255,255,255,.3);
+      text-align: center;
       position: absolute;
-      top: 40%;
-      left: 40%;
-      z-index: 7;
-      color: #fff;
+      bottom: 36px;
+      left: -3px;
+      border-radius: 2px;
+      padding: 5px;
     }
+    .video-solution:hover .droplist, .video-solution:active .droplist {
+      display: block;
+    }
+    .video-solution .droplist>a {
+      display: block;
+      font-size: 12px;
+      color: #ddd;
+      cursor: pointer;
+      text-align: center;
+    }
+    .droplist>a:last-child {
+      margin-bottom: 0;
+    }
+    .droplist>a:hover, .droplist>a:focus ,.droplist>a.current {
+      color: #f11c2a;
+    }
+
     /** 暂停/播放 mask **/
     .mask {
       display: none;
@@ -343,7 +363,6 @@
       display: none;
       cursor: pointer;
     }
-
     .video-volumn .unmute {
       float: left;
       width: 20px;
@@ -353,13 +372,12 @@
     .video-volumn .line {
       float: left;
       width: 80px;
-      background: #333;
+      background: #232323;
       margin-top: 9px;
       margin-left: 8px;
       display: inline;
       border-radius: 10px;
     }
-
     .video-volumn .tracks {
       float: left;
       width: 90%;
@@ -369,11 +387,10 @@
       border-radius: 10px;
       /*background: #f11c2a;*/
     }
-
     .video-volumn .tracks .volumn-bar {
       position: absolute;
-      left: 0px;
-      top: 0px;
+      left: 0;
+      top: 0;
       width: 40%;
       height: 10px;
       display: inline;
@@ -382,34 +399,31 @@
       background: #f11c2a;
       border-radius: 10px;
     }
-
     .video-volumn .tracks .volumn-bar .l {
       float: left;
       width: 4px;
       height: 10px;
       margin-left: -3px;
-      margin-top: 0px;
-      font-size: 0px;
+      margin-top: 0;
+      font-size: 0;
       position: relative;
       display: inline;
     }
-
     .video-volumn .tracks .volumn-bar .r {
       float: right;
       width: 3px;
       height: 10px;
       background-position: -1px -95px;
       margin-right: -3px;
-      margin-top: 0px;
-      font-size: 0px;
+      margin-top: 0;
+      font-size: 0;
       position: absolute;
-      right: 0px;
+      right: 0;
       display: inline;
     }
-
     .video-volumn .tracks .volumn-bar .point {
       position: absolute;
-      right: 0px;
+      right: 0;
       width: 15px;
       height: 15px;
       margin-right: -5px;
@@ -417,6 +431,57 @@
       border-radius: 50%;
       background: #fff;
     }
+
+    /*** 直播前置广告 ***/
+    .adv {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+    .adv>img {
+      width: 100%;
+      height: 100%;
+    }
+    .adv-btn {
+      display: inline-block;
+      width: 152px;
+      height: 30px;
+      padding: 5px;
+      text-align: center;
+      font-size: 12px;
+      color: #f11c2a;
+      vertical-align: middle;
+      background: rgba(35,35,35,.8);
+      border: 1px solid #f11c2a;
+      border-radius: 3px;
+      text-decoration: none;
+      cursor: pointer;
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      z-index: 6;
+    }
+    .adv-btn>b {
+      font-style: normal;
+      margin: 0 3px;
+    }
+
+    /***  载入中  ***/
+    .video-prompt {
+      display: none;
+      position: absolute;
+      top: 40%;
+      left: 40%;
+      z-index: 7;
+      color: #fff;
+    }
+
 
   </style>
 </head>
@@ -426,10 +491,11 @@
 
   <div class="video-player">
     <video width="100%" height="100%" src="jinghong.flv" id="video1"></video>
-    <!-- 展示logo  -->
+    <!-- logo  -->
     <a class="play-logo"><img src="logo-grey.png" alt="888live"></a>
     <!--  载入中 -->
     <div class="video-prompt"><img src="logo-grey.png"><br>载入中。。。</div>
+    <!--  底部控制栏 -->
     <div class="video-controls">
       <!--  进度条  -->
       <div class="video-seek">
@@ -440,7 +506,7 @@
           <span>房间号：1234567890</span> <b>|</b> <span>2018-03-28</span>
         </div>
       </div>
-      <!-- 播放/暂停 -->
+      <!-- 播放/暂停  切换用.active -->
       <div class="video-play">
         <a class="active" title="播放"><i class="icon icon-play">&#xe6aa;</i></a>
         <a title="暂停"><i class="icon icon-pause">&#xe6ab;</i></a>
@@ -452,6 +518,7 @@
         <li class="video-feedback">
           <a title="反馈"><i class="icon icon-feedback">&#xe63f;</i></a>
         </li>
+        <!-- 音量控制  静音切换用.active -->
         <li class="volume">
           <div class="video-volumn">
             <a class="mute"><i class="icon icon-volume0">&#xe6f5;</i></a>
@@ -467,6 +534,7 @@
             </div>
           </div>
         </li>
+        <!-- 弹幕开关 -->
         <li class="danmu">
           <div class="switch">
             <input class="switch-checkbox" id="onoffswitch" type="checkbox">
@@ -476,9 +544,16 @@
             </label>
           </div>
         </li>
+        <!-- 画质 -->
         <li class="video-solution">
-          <a title="画质">高清</a>
+          <a title="画质">标清</a>
+          <div class="droplist">
+            <a class="current" title="标清">标清</a>
+            <a title="高清">高清</a>
+            <a title="超高清">超高清</a>
+          </div>
         </li>
+        <!-- 全屏 切换用.active -->
         <li class="video-screen">
           <a class="active" title="全屏">
             <i class="icon icon-full-screen">&#xe754;</i>
@@ -490,16 +565,23 @@
         </li>
       </ul>
     </div>
-    <div class="mask">
-      <div class="layout">
-        <a class="active" title="播放">
-          <i class="icon icon-play">&#xe667;</i>
-        </a>
-        <a title="暂停">
-          <i class="icon icon-pause">&#xe668;</i>
-        </a>
-      </div>
+    <!--直播前广告-->
+    <div class="adv">
+      <img src="danmu.jpg" alt="直播前广告">
+      <a class="adv-btn">广告剩余<b>5</b>秒  自动关闭 </a>
     </div>
+
+
+    <!--<div class="mask">-->
+      <!--<div class="layout">-->
+        <!--<a class="active" title="播放">-->
+          <!--<i class="icon icon-play">&#xe667;</i>-->
+        <!--</a>-->
+        <!--<a title="暂停">-->
+          <!--<i class="icon icon-pause">&#xe668;</i>-->
+        <!--</a>-->
+      <!--</div>-->
+    <!--</div>-->
   </div>
 
 
