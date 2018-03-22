@@ -534,3 +534,121 @@ ul,li {
   margin-top: 20px;
   cursor: pointer;
 }
+/*** 主播不在  ****/
+.no-poster {
+  width: 450px;
+  height: auto;
+  position: absolute;
+  top: 28%;
+  left: 27%;
+  z-index: 7;
+  text-align: center;
+  margin: 0 auto;
+}
+.no-poster .post-list {
+  display: flex;
+  display: -webkit-flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.no-poster .post-list>li {
+  width: 216px;
+  height: 173px;
+  overflow: hidden;
+  background: #3c3c3c;
+  position: relative;
+}
+.post-list>li img {
+  width: 216px;
+  height: 120px;
+}
+.post-list .post-btn {
+  display: inline-block;
+  width: 81px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  background: #ff921a;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  text-decoration: none;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  left: 0;
+}
+.post-btn>b {
+  font-style: normal;
+  vertical-align: top;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+}
+.post-btn>.icon {
+  font-size: 18px;
+  color: #fff;
+  vertical-align: top;
+  margin-left: 6px;
+}
+.post-info {
+  padding: 5px 5px 15px 5px;
+  font-size: 14px;
+  overflow: hidden;
+}
+.post-info>h2 {
+  padding: 0;
+  margin: 0;
+}
+.post-theme span {
+  cursor: pointer;
+  float: right;
+  font-size: 12px;
+  color: #888;
+  text-align: right;
+}
+.post-theme a {
+  float: left;
+  font-size: 12px;
+  color: #fff;
+  font-weight: 500;
+  text-align: left;
+  text-decoration: none;
+  max-width: 108px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -moz-text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.post-info .icon-usergroup {
+  font-size: 14px;
+  color: #999;
+  margin-right: 4px;
+}
+.poster-name a {
+  font-size: 12px;
+  color: #999;
+  display: block;
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  text-align: left;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -moz-text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.poster-name span {
+  margin-left: 8px;
+}
+.no-poster>p {
+  font-size: 12px;
+  font-weight: 400;
+  color: #aaa;
+}
+.reload-btn {
+  color: #f11c2a;
+  text-decoration: none;
+}
