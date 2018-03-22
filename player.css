@@ -652,3 +652,19 @@ ul,li {
   color: #f11c2a;
   text-decoration: none;
 }
+/*** flash提示  ***/
+.flash-tips {
+  position: absolute;
+  top: 35%;
+  left: 33%;
+  z-index: 7;
+  color: #fff;
+  height: auto;
+  text-align: center;
+  margin: 0 auto;
+}
+.flash-tips>img {
+  width: 72px;
+  height: 72px;
+  vertical-align: center;
+}
