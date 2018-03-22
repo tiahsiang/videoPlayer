@@ -668,3 +668,66 @@ ul,li {
   height: 72px;
   vertical-align: center;
 }
+/*** 送礼物提示 ***/
+.gift-tips {
+  width: 100%;
+  height: auto;
+  background: transparent;
+  position: absolute;
+  left: 0;
+  bottom: 90px;
+  z-index: 8;
+}
+.gift-tips a {
+  display: block;
+  width: 214px;
+  height: 60px;
+  padding: 10px 0 5px 15px;
+  text-align: left;
+  margin: 10px 0;
+  vertical-align: middle;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+  background: linear-gradient(90deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.15) 100%);
+}
+.gift-tips a span {
+  display: block;
+  font-size: 16px;
+  color: #fff;
+}
+.gift-tips a b {
+  font-style: normal;
+  display: block;
+  font-size: 14px;
+  color: #f11c2a;
+}
+.gift-tips a b>s {
+  font-style: normal;
+  text-decoration: none;
+  margin: 0 5px;
+}
+.gift-tips a b>s:last-child {
+  margin-left: 0;
+}
+.giver-name {
+  max-width: 180px;
+  height: 20px;
+  line-height: 20px;
+  text-align: left;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -moz-text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.gift-tips a {
+  position: relative;
+}
+.gift-tips a img {
+  height: 60px;
+  position: absolute;
+  right: -23px;
+  top: 0;
+  vertical-align: middle;
+}
