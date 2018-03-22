@@ -2,14 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a47ae86a-bf21-433c-a584-877f628737db" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/danmu.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/jinghong.flv" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/flv.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/hls.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/jquery.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/webtorrent.min.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -27,9 +19,15 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="334" column="77" lean-forward="true" selection-start-line="334" selection-start-column="77" selection-end-line="334" selection-end-column="77" />
-              <folding />
+            <state relative-caret-position="588">
+              <caret line="350" column="22" lean-forward="false" selection-start-line="350" selection-start-column="22" selection-end-line="350" selection-end-column="22" />
+              <folding>
+                <element signature="e#6564#6753#0" expanded="false" />
+                <element signature="e#6772#6780#0" expanded="false" />
+                <element signature="e#6801#7037#0" expanded="false" />
+                <element signature="e#7064#7113#0" expanded="false" />
+                <element signature="e#7141#7170#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -111,7 +109,7 @@
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../888live" />
+    <property name="last_opened_file_path" value="F:/U盘备份文件-重要/04. CSS效果/css3loading加载动画" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RecentsManager">
@@ -146,15 +144,16 @@
       <option name="presentableId" value="Default" />
       <updated>1521646680778</updated>
       <workItem from="1521646684861" duration="647000" />
-      <workItem from="1521683015847" duration="1992000" />
+      <workItem from="1521683015847" duration="7290000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2639000" />
+    <option name="totallyTimeSpent" value="7937000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="2" width="1856" height="1046" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21086957" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -190,7 +189,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#6564#6753#0" expanded="false" />
+            <element signature="e#6772#6780#0" expanded="false" />
+            <element signature="e#6801#7037#0" expanded="false" />
+            <element signature="e#7064#7113#0" expanded="false" />
+            <element signature="e#7141#7170#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -236,9 +241,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="334" column="77" lean-forward="true" selection-start-line="334" selection-start-column="77" selection-end-line="334" selection-end-column="77" />
-          <folding />
+        <state relative-caret-position="588">
+          <caret line="350" column="22" lean-forward="false" selection-start-line="350" selection-start-column="22" selection-end-line="350" selection-end-column="22" />
+          <folding>
+            <element signature="e#6564#6753#0" expanded="false" />
+            <element signature="e#6772#6780#0" expanded="false" />
+            <element signature="e#6801#7037#0" expanded="false" />
+            <element signature="e#7064#7113#0" expanded="false" />
+            <element signature="e#7141#7170#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
