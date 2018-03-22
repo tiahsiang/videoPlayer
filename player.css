@@ -301,41 +301,6 @@ ul,li {
   color: #f11c2a;
 }
 
-/** 暂停/播放 mask **/
-.mask {
-  display: none;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0,0,0,.5);
-}
-.mask>.layout {
-
-}
-.mask .layout>a {
-  display: none;
-  text-align: center;
-  vertical-align: middle;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -20px;
-  margin-left: -20px;
-  z-index: 10;
-  cursor: pointer;
-}
-.mask .layout>a .icon {
-  font-size: 40px;
-  color: #fff;
-}
-.mask .layout>a.active {
-  display: block;
-}
-
 /** 音量条 **/
 .video-volumn {
   float:left;
@@ -701,12 +666,12 @@ ul,li {
   font-size: 14px;
   color: #f11c2a;
 }
-.gift-tips a b>s {
+.gift-tips a b>s, .text-gradient s {
   font-style: normal;
   text-decoration: none;
   margin: 0 5px;
 }
-.gift-tips a b>s:last-child {
+.gift-tips a b>s:last-child, .text-gradient s:last-child {
   margin-left: 0;
 }
 .giver-name {
@@ -730,4 +695,87 @@ ul,li {
   right: -23px;
   top: 0;
   vertical-align: middle;
+}
+.text-gradient {
+  height: 60px;
+  position: absolute;
+  right: -107px;
+  top: -32px;
+  vertical-align: middle;
+}
+.text-gradient s:last-child {
+  font-size: 30px;
+  margin-left: 5px;
+}
+.text-gradient {
+  font-size: 40px;
+  font-weight: bold;
+  display: block;
+  color: #fdc936;
+  font-family: "PingFang SC Medium", Helvetica, Arial, sans-serif, "Roboto Slab", "Helvetica Neue";
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:0 0 3px #fdc936, -1px -1px rgba(155, 102, 7, 1), 1px -1px #fdc936;
+}
+/*** 置顶直播 ***/
+.fix-top {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  z-index: 7;
+  color: #fff;
+  width: 200px;
+  height: auto;
+  text-align: center;
+  margin: 0 auto;
+}
+.fix-top>a.addTop-btn {
+  display: block;
+  width: 150px;
+  height: 40px;
+  font-size: 14px;
+  color: #f11c2a;
+  line-height: 30px;
+  padding: 5px;
+  text-align: center;
+  background: rgba(0,0,0,.8);
+  border: 1px solid #f11c2a;
+  border-radius: 3px;
+  text-decoration: none;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+/** 暂停/播放 mask **/
+.mask {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.7);
+}
+.mask>.layout {
+
+}
+.mask .layout>a {
+  display: none;
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -23px;
+  margin-left: -23px;
+  z-index: 10;
+  cursor: pointer;
+}
+.mask .layout>a .icon {
+  font-size: 46px;
+  color: #fff;
+}
+.mask .layout>a.active {
+  display: block;
 }
